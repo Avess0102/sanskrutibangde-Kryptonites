@@ -67,7 +67,7 @@ def upload():
         if(prediction=="Lung_Opacity"):
             prediction="Your results COVID-19 Detection result are NEGATIVE.You Probably have Lung Opacity."
         if(prediction=="Viral Pneumonia"):
-            prediction="Your results COVID-19 Detection result are NEGATIVE.You Probably have Viral Pneumonia."
+            prediction="Your results for viral pnuemonia are POSITIVE."
         if(prediction=="COVID"):
             prediction="Your results COVID Detection result are POSITIVE " 
  

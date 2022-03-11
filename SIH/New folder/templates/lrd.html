@@ -84,12 +84,13 @@
             <h3>Lungs Related Disease Detection</h3>
             <p>Please Upload your Chest X-ray here </p>
             <div class="">
-              <form method="post" action="#" id="#">
+              <form method="post" action="{{url_for('upload')}}" method="post" enctype="multipart/form-data" id="#">
                 <div class="form-group files">
                   <i class="fa-solid fa-cloud-arrow-up"></i>
                   <input type="file" id="file" class="form-control" multiple="">
                   <label for="file"> <i class="fa-solid fa-cloud-arrow-up"></i> </label>
                 </div>
+                <center><input type="submit" value="Submit" name="submit">
               </form>
             </div>
             <a class="cta-btn align-self-start" href="#">See Result</a>
@@ -118,7 +119,7 @@
             <h3 class="p-2">Please Upload your Chest X-ray here</h3><i class="fa-regular fa-cloud-arrow-up" height="10px" width="10px"></i>
           </div>
           <div class="">
-            <form method="post" action="#" id="#">
+            <form method="post" action="{{url_for('upload')}}" method="post" enctype="multipart/form-data" id="#">
               <div class="form-group files">
                 <i class="fa-solid fa-cloud-arrow-up"></i>
                 <input type="file" class="form-control" multiple="">
@@ -218,6 +219,34 @@
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  
+  <script>
+
+    $("#file-picker").change(function () {
+
+      var input = document.getElementById('file-picker');
+
+      for (var i = 0; i < input.files.length; i++) {
+        var ext = input.files[i].name.substring(input.files[i].name.lastIndexOf('.') + 1).toLowerCase()
+
+        if ((ext == 'jpg') || (ext == 'png')) {
+          $("#msg").text("Files are supported")
+        }
+        else {
+          $("#msg").text("Files are NOT supported")
+          document.getElementById("file-picker").value = "";
+        }
+
+      }
+
+
+    });
+
+  </script>
+
+
 <!-- Vendor JS Files -->
 <!-- <link href="{{ url_for('static', filename='assets/css/variables.css') }}" rel="stylesheet"> -->
 <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
